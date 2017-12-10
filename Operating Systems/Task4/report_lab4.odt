@@ -1,0 +1,82 @@
+﻿EOPSY_Lab 4_Kosmas Tsiakas
+
+MOSS Memory Management Simulator 
+
+Create a command file that maps any 8 pages of physical memory to the first 8 pages of virtual memory, and then reads from one virtual memory address on each of the 64 virtual pages. Step through the simulator one operation at a time and see if you can predict which virtual memory addresses cause page faults. What page replacement algorithm is being used?
+
+Locate in the sources and describe to the instructor the page replacement algorithm.
+
+At first, we edit the memory.conf file to assign the first eight virtual pages to 8 different random physical pages.  Then on the commands file, we have 64 READ instructions, so that we can read from each of the 64 virtual pages.
+
+As the simulation is running, the mapping is done as it is specified in the input files, up to virtual page 31. After that, any memory request causes a page fault. 
+
+The page placement algorithm that is used is the First-in First-out, which services each request sequentially.  As new pages are brought in, they are added to the tail of a queue, and the page at the head of the queue is the next victim.
+
+The page placement algorithm is described in the PageFault.java file. 
+
+
+Below is the tracefile:
+
+READ 11386 ... okay
+READ 22383 ... okay
+READ 37141 ... okay
+READ 59601 ... okay
+READ 78117 ... okay
+READ 85765 ... okay
+READ 99924 ... okay
+READ 119460 ... okay
+READ 133556 ... okay
+READ 154951 ... okay
+READ 174278 ... okay
+READ 185627 ... okay
+READ 212108 ... okay
+READ 213915 ... okay
+READ 235100 ... okay
+READ 259602 ... okay
+READ 266951 ... okay
+READ 285726 ... okay
+READ 295471 ... okay
+READ 313990 ... okay
+READ 334896 ... okay
+READ 358839 ... okay
+READ 371307 ... okay
+READ 379050 ... okay
+READ 407997 ... okay
+READ 419199 ... okay
+READ 436136 ... okay
+READ 455435 ... okay
+READ 464743 ... okay
+READ 484808 ... okay
+READ 495559 ... okay
+READ 520154 ... okay
+READ 527247 ... page fault
+READ 544486 ... page fault
+READ 571445 ... page fault
+READ 574648 ... page fault
+READ 601959 ... page fault
+READ 608242 ... page fault
+READ 634464 ... page fault
+READ 650334 ... page fault
+READ 665303 ... page fault
+READ 680123 ... page fault
+READ 700084 ... page fault
+READ 718045 ... page fault
+READ 736765 ... page fault
+READ 752113 ... page fault
+READ 764461 ... page fault
+READ 772474 ... page fault
+READ 797201 ... page fault
+READ 811811 ... page fault
+READ 823332 ... page fault
+READ 851304 ... page fault
+READ 865084 ... page fault
+READ 873704 ... page fault
+READ 898206 ... page fault
+READ 915878 ... page fault
+READ 927862 ... page fault
+READ 936529 ... page fault
+READ 951949 ... page fault
+READ 978808 ... page fault
+READ 990300 ... page fault
+READ 1008584 ... page fault
+READ 1022333 ... page fault

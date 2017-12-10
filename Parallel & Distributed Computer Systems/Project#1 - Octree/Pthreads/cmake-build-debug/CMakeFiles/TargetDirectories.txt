@@ -1,0 +1,3 @@
+/home/kosmas/ClionProjects/01parallila/Pthreads/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/kosmas/ClionProjects/01parallila/Pthreads/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/kosmas/ClionProjects/01parallila/Pthreads/cmake-build-debug/CMakeFiles/01parallila.dir

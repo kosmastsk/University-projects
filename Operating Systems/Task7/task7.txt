@@ -1,0 +1,99 @@
+
+Implement in the C language again the dining philosophers program. Now,
+instead of usage of processes and semaphores, use threads and mutexes from the
+pthreads library.
+
+For synchronization again implement and use the two following functions: 
+
+void grab_forks( int philo_id );
+
+void put_away_forks( int philo_id );
+
+where parameters are integers identifying semaphores associated with each
+fork.  grab_forks() and put_away_forks() should use pthread mutexes.
+
+Because with mutexes we are not able to change more than one mutex value in
+one call, the above mentioned functions have to be implemented differently. 
+
+Here is the outline:
+-----------------------------------------------------------------------
+#define N	5
+#define LEFT	( i + N - 1 ) % N
+#define RIGHT	( i + 1 ) % N
+
+#define THINKING
+#define HUNGRY
+#define EATING
+
+mutex	m 		initialized to 1
+int	state[N]	initiated to THINKING's
+mutex	s[N]		initialized to 0's
+
+void
+grab_forks( int i )
+{
+	down( &m );
+		state[i] = HUNGRY;
+		test( i );
+	up( &m );
+	down( &s[i] );
+}
+
+void
+put_away_forks( int i )
+{
+	down( &m );
+		state[i] = THINKING;
+		test( LEFT );
+		test( RIGHT );
+	up( &m );
+}
+
+void
+test( int i )
+{
+	if( state[i] == HUNGRY
+		&& state[LEFT] != EATING
+		&& state[RIGHT] != EATING )
+	{
+		state[i] = EATING;
+		up( &s[i] );
+	}
+}
+
+
+-----------------------------------------------------------------------
+
+Remarks:
+
+- use pthreads_XXX and pthread_mutex_XXX interfaces, 
+- do not use old thread_XXX and mutex_XXX interfaces,
+- manual pages to read: 
+	pthreads
+	pthread_create (see EXAMPLES section as well)
+	pthread_mutex_init, pthread_mutex_lock, pthread_mutex_unlock,
+
+
+Additional questions:
+
+1. Would it be sufficient just to add to the old algorithm from task5
+additional mutex variable to organize critical sections in functions
+grab_forks() and put_away_forks() for making changes to values of two mutexes
+indivisably?  If not, why?
+
+2. Why m mutex is initialized with 1 and mutexes from the array s are
+initialized with 0's?
+
+
+-----------------------------------------------------------------------
+
+The Dining Philosophers
+
+The Dining Philosophers problem is a classic multi-process synchronization
+problem. The problem consists of five philosophers sitting at a table who do
+nothing but think and eat. Between each philosopher, there is a single fork
+In order to eat, a philosopher must have both forks. A problem can arise if
+each philosopher grabs the fork on the right, then waits for the fork on the
+left. In this case a deadlock has occurred, and all philosophers will starve.
+Also, the philosophers should be fair. Each philosopher should be able to eat
+as much as the rest.

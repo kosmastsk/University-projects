@@ -1,0 +1,3 @@
+/home/kosmas/Dropbox/Erasmus+courses/EOPSY/labs/task5/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/kosmas/Dropbox/Erasmus+courses/EOPSY/labs/task5/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/kosmas/Dropbox/Erasmus+courses/EOPSY/labs/task5/cmake-build-debug/CMakeFiles/task5.dir

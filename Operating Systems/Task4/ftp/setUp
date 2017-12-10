@@ -1,0 +1,9 @@
+echo "Creating ../work subdirectory"
+mkdir ../work 2>/dev/null
+cd ../work
+cp ../ftp/* .
+gzip -d memory.tgz
+tar -xvf memory.tar
+rm memory.tar
+echo ""
+echo "Now, go to the directory ../work and submit 'make'"

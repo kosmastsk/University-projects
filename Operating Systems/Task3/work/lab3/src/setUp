@@ -1,0 +1,9 @@
+echo "Creating ../work subdirectory"
+mkdir ../work
+cd ../work
+cp ../ftp/* .
+gzip -d sched.tgz
+tar -xvf sched.tar
+rm sched.tar
+echo ""
+echo "Now, go to the directory ../work and call 'make'"

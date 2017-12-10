@@ -1,0 +1,45 @@
+
+
+  WORKPLACE ORGANIZATION:
+mkdir ../work
+cd ../work
+cp ../ftp/* .
+gzip -d memory.tgz
+tar -xvf memory.tar
+rm memory.tar
+
+
+  READING:
+more/less/vi/vim README.tjk
+netscape/lynx/links install_unix.html
+netscape/lynx/links user_guide.html
+
+
+  COMPILE:
+javac -nowarn *.java
+
+
+  RUN:
+java MemoryManagement commands memory.conf
+
+
+  FILES:
+input file name:                commands
+initial content of the VM map:  memory.conf
+output file name:               tracefile
+
+
+--[ YOUR TASK ]-------------------------------------------------------
+
+Create a command file that maps any 8 pages of physical memory to the
+first 8 pages of virtual memory, and then reads from one virtual memory
+address on each of the 64 virtual pages. Step through the simulator one
+operation at a time and see if you can predict which virtual memory
+addresses cause page faults. What page replacement algorithm is being
+used?
+
+Locate in the sources and describe to the instructor the page 
+replacement algorithm.
+
+----------------------------------------------------------------------
+
