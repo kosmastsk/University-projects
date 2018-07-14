@@ -16,6 +16,7 @@ Below you can find detailed information about these:
 | Computer Networks I | 7th | Java |
 | Operating Systems _(Warsaw University of Technology)_ | 8th | C/Bash |
 | [Computer Graphics](https://github.com/kosmastsk/Computer-Graphics) | 8th | MATLAB |
+| Digital Filters | 8th | MATLAB |
 | Multimedia Systems | 9th | MATLAB |
 
 In every folder there is a more detailed description of each project.
